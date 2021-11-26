@@ -1,0 +1,75 @@
+﻿@model OfficeWork.Models.Department
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/af-2.3.7/datatables.min.css" />
+    <style>
+        th, table.dataTable tbody td {
+            padding: 1px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <!-- Button trigger modal -->
+    <button type="button" id="dept" class="btn btn-primary my-3 btn-sm" data-toggle="modal" data-target="#exampleModal">
+        Department
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="Department">
+                        <input type="hidden" asp-for="Id" class="form-control" id="Id" value="0" />
+                        <input type="text" asp-for="DepartmentName" class="form-control" id="DepartmentName" />
+                        <div style="padding:0.1px" class="alert alert-danger mt-2" id="error" role="alert">
+                            Please Fill the DepartmentName
+                        </div>
+                        <input type="hidden" asp-for="UpdateDate" class="form-control" id="updateDate" />
+                        <input type="hidden" asp-for="CreatedDate" class="form-control" id="createdDate" />
+                        <input type="hidden" asp-for="Clientid" class="form-control" id="clientid" />
+                        <input type="hidden" asp-for="Companyid" class="form-control" id="companyid" />
+                        <input type="hidden" asp-for="Headid" class="form-control" id="headid" />
+                        <button type="button" id="savedata" class="btn btn-primary mt-2">Add</button>
+                        <button type="button" onclick="resetForm()" id="reset" class="btn btn-danger mt-2">Reset</button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="hide" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <table id="data" class="table table-striped">
+            <thead>
+                <tr>    
+                    <th>DepartmentName</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    @section scripts{
+
+
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/af-2.3.7/datatables.min.js"></script>
+        <script src="~/js/Department.js"></script>
+
+    }
+    
+
+</body>
